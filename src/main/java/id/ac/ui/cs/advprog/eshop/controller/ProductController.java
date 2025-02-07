@@ -30,6 +30,7 @@ public class ProductController {
 
     @GetMapping("/list")
     public String listProduct(Model model) {
+        // Retrieves all products and displays them on the product list page.
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
         return "ProductList"; 
@@ -37,6 +38,7 @@ public class ProductController {
 
     @GetMapping("/edit/{id}")
     public String editProductPage(@PathVariable String id, Model model) {
+        // Retrieves a product by ID and redirects to  the edit product page.
         Product product = service.findById(id);
         model.addAttribute("product", product);
         return "EditProduct"; 
@@ -44,12 +46,14 @@ public class ProductController {
 
     @PostMapping("/edit")
     public String editProductPost(@ModelAttribute Product product, Model model) {
+        // Handles the submission of the edit product form and redirects back to list.
         service.edit(product);
         return "redirect:list";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable String id) {
+        // Deletes a product by ID and redirects back to prodcut list.
         service.delete(id);
         return "redirect:/product/list";
     }
