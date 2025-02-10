@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>ADV Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rosewater: '#f5e0dc',
+                        flamingo: '#f2cdcd',
+                        mauve: '#cba6f7',
+                        pink: '#f5c2e7',
+                        surface: '#313244',
+                        base: '#1e1e2e',
+                        crust: '#11111b'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <h3>Welcome</h3>
+<body class="bg-base text-rosewater min-h-screen flex items-center justify-center">
+    <h3 class="text-4xl font-bold text-mauve">Welcome</h3>
 </body>
 </html>
