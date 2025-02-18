@@ -10,3 +10,8 @@ I have followed proper coding standards while implementing the new features, ens
 I believe that an arbitrary number of tests ensuring full code and feature coverage are needed to verify a program's correctness. Even with 100% test coverage, a program may still contain bugs because coverage alone does not guarantee that all possible edge cases are tested. Tests can trigger lines of code without validating their correctness under different scenarios, which is why well-designed test cases are essential. To improve the effectiveness of tests, it is crucial to include boundary testing, negative testing, and real-world usage scenarios. While high coverage is beneficial, true reliability comes from a combination of thoughtful test case design and continuous testing improvements.
 
 I think that creating a new class for that one test is redundant. A better approach would be to incorporate testing the number of products in the product list while testing creating multiple products, ensuring no functions are created twice and removing boilerplate code. 
+
+# Assignment 2
+ 
+# Reflection 1
+After implementing Sonarcloud integration and doing an initial scan, a couple of issues showed up. Most were just mantainability and readability issues, with no critical security issues. However, they were simple enough to fix, such as replacing decorators with constructor injection in ProductController.java. I think my CI/CD pipeline has indeed met the definition of Continuous Integration and Continuous Deployment. When I push to my main branch, it is immediately tested and scanned for code smells (continuous integration) and deployed to Koyeb (continuous deployment).
