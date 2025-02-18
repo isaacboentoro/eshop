@@ -28,7 +28,7 @@ public class CreateProductFunctionalTest {
     }
 
     @Test
-    void createProduct_isSuccess(ChromeDriver driver) throws Exception {
+    void createProduct_isSuccess(ChromeDriver driver) {
         driver.get(baseUrl + "/product/create");
 
         WebElement nameInput = driver.findElement(By.id("nameInput"));
