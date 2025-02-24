@@ -15,3 +15,12 @@ I think that creating a new class for that one test is redundant. A better appro
  
 # Reflection 1
 After implementing Sonarcloud integration and doing an initial scan, a couple of issues showed up. Most were just mantainability and readability issues, with no critical security issues. However, they were simple enough to fix, such as replacing decorators with constructor injection in ProductController.java. I think my CI/CD pipeline has indeed met the definition of Continuous Integration and Continuous Deployment. When I push to my main branch, it is immediately tested and scanned for code smells (continuous integration) and deployed to Koyeb (continuous deployment).
+
+# Assignment 3
+
+# Reflection 1
+I applied the Single Responsibility Principle by separating CarController from ProductController into its own class, CarController.java. These classes are able to be extended, but not modified, thus fulfilling the Open-Closed princple. Since there are no parent-child classes, the Liskov substitution principle is not applied. Separating the service implementations (ProductServiceImpl, CarServiceImpl) also helps fulfill the Interface Segregation Principle. 
+
+Applying SOLID principles makes my code more mantainable and easier to understand, because each class has one specific purpose. For example, ProductController was cluttered with car-related mappings before it was separated to CarController.java. 
+
+Not applying SOLID principles could make the project clutteerd, for example with many dependencies in the service implementation if you combined both files. 
