@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 @Repository
 public class CarRepository {
-    static int id = 0;
     private List<Car> carData = new ArrayList<>();
     public Car create(Car car){
         if(car.getCarId() == null){
@@ -25,15 +24,13 @@ public class CarRepository {
         }
         return null;
     }
-    public Car update(String id, Car updatedCar) {
-        for (int i = 0; 1 < carData.size(); i++){
-            Car car = carData.get(i);
-            if (car.getCarId().equals(id)){
-                car.setCarName(updatedCar.getCarName());
-                car.setCarColor(updatedCar.getCarColor());
-                car.setCarQuantity(updatedCar.getCarQuantity());
-                return car;
-            }
+    public Car update(String id, Car updateData) {
+        Car carToUpdate = findById(id);
+        if (carToUpdate != null) {
+            carToUpdate.setCarName(updateData.getCarName());
+            carToUpdate.setCarColor(updateData.getCarColor());
+            carToUpdate.setCarQuantity(updateData.getCarQuantity());
+            return carToUpdate;
         }
         return null;
     }

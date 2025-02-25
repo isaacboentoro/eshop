@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @Controller
 @RequestMapping("/car")
-class CarController extends ProductController {
+public class CarController extends ProductController {
     @Autowired
     private CarServiceImpl carservice;
 
@@ -65,4 +66,4 @@ class CarController extends ProductController {
         carservice.deleteCarById(carId);
         return "redirect:listCar";
     }
-}
+}   
