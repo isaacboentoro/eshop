@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.*;
@@ -17,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplTest {
     @InjectMocks
@@ -63,7 +63,7 @@ class OrderServiceImplTest {
         Order order = orders.get(1);
         Order newOrder = new Order(order.getId(), order.getProducts(), order.getOrderTime(), order.getAuthor(), OrderStatus.SUCCESS.getValue());
         doReturn(order).when(orderRepository).findById(order.getId());
-        doReturn(newOrder).when(orderRepository).save(any(order.class));
+        doReturn(newOrder).when(orderRepository).save(any(Order.class));
 
         Order result = orderService.updateStatus(order.getId(), OrderStatus.SUCCESS.getValue());
 
