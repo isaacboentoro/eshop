@@ -24,3 +24,14 @@ I applied the Single Responsibility Principle by separating CarController from P
 Applying SOLID principles makes my code more mantainable and easier to understand, because each class has one specific purpose. For example, ProductController was cluttered with car-related mappings before it was separated to CarController.java. 
 
 Not applying SOLID principles could make the project clutteerd, for example with many dependencies in the service implementation if you combined both files. 
+
+# Assignment 4
+
+# Reflection 1
+I think that the TDD workflow has benefited me. The tests are strucutred, and have coverage of both happy and error paths, with mocking used to isolate the service from its dependencies. It also follows the FIRST Principles analysis:
+
+ - Fast: tests use mocks instead of actual database operations, without any sleep or delay that would slow execution
+ - Independent: Each test method focuses on a single behaviour, and do not depend on each other's execution, and fresh data is created in the BeforeEach setup
+ - Repeatable: tests use mocked repositories, avoiding third party dependencies. Fixed test data means consistent results
+ - Self-validating: Clear assertions determine pass or fail. 
+ - Thorough and timely: Test has high code coverage, but could have some more for corner cases, and use parameterized tests. 
