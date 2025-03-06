@@ -22,9 +22,9 @@ public class PaymentTest{
 
     @Test
     void testCreatePaymentVoucher() {
-        Payment payment = new Payment("a7c86c9d-f08b-4f57-ac05-9e95a9b36e3d", "voucherCode", voucherData, "SUCCESS");
+        Payment payment = new Payment("a7c86c9d-f08b-4f57-ac05-9e95a9b36e3d", "by-voucher", "SUCCESS", voucherData);
         assertEquals("a7c86c9d-f08b-4f57-ac05-9e95a9b36e3d", payment.getId());
-        assertEquals("voucherCode", payment.getMethod());
+        assertEquals("by-voucher", payment.getMethod());
         assertEquals(voucherData, payment.getPaymentData());
     }
 
@@ -32,11 +32,11 @@ public class PaymentTest{
     void testCreatePaymentSuccess() {
         Map<String, String> newData = new HashMap<>();
         newData.put("voucherCode", "ESHOP1234ABC5678");
-        Payment payment = new Payment("b2ec45d8-91c8-4b49-9de9-187f23abc123", "voucherCode", newData, "SUCCESS");
+        Payment payment = new Payment("b2ec45d8-91c8-4b49-9de9-187f23abc123", "by-voucher", "SUCCESS", newData);
         payment.setStatus("SUCCESS");
         assertEquals("b2ec45d8-91c8-4b49-9de9-187f23abc123", payment.getId());
         assertEquals("ESHOP1234ABC5678", voucherData.get("voucherCode"));
-        assertEquals("voucherCode", payment.getMethod());
+        assertEquals("by-voucher", payment.getMethod());
         assertEquals("SUCCESS", payment.getStatus());
     }
 
@@ -44,11 +44,11 @@ public class PaymentTest{
     void testCreatePaymentFail() {
         Map<String, String> newData = new HashMap<>();
         newData.put("voucherCode", "MEOW");
-        Payment payment = new Payment("d5f79e3a-cc6b-4216-b54d-3ff082e2b139", "voucherCode", newData, "REJECTED");
+        Payment payment = new Payment("d5f79e3a-cc6b-4216-b54d-3ff082e2b139", "by-voucher", "REJECTED", newData);
         payment.setStatus("REJECTED");
         assertEquals("d5f79e3a-cc6b-4216-b54d-3ff082e2b139", payment.getId());
         assertNotEquals("ESHOP1234ABC5678", newData.get("voucherCode"));
-        assertEquals("voucherCode", payment.getMethod());
+        assertEquals("by-voucher", payment.getMethod());
         assertEquals("REJECTED", payment.getStatus());
     }
 }
