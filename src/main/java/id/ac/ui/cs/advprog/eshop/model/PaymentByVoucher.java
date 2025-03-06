@@ -15,6 +15,22 @@ public class PaymentByVoucher extends Payment{
 
     @Override
     public void setPaymentData(Map<String, String> paymentData) {
-
+        if (paymentData.isEmpty() || !paymentData.containsKey("voucherCode") || paymentData.get("voucherCode") == null) {
+            throw new IllegalArgumentException();
+        } else {
+            String voucherCode = paymentData.get("voucherCode");
+            int nums = 0;
+            for (char c : voucherCode.toCharArray()) {
+                if (Character.isDigit(c)) {
+                    nums++;
+                }
+            }
+            this.paymentData = paymentData;
+            if (voucherCode.length() == 16 && voucherCode.startsWith("ESHOP") && nums == 8) {
+                this.status = PaymentStatus.SUCCESS.getValue();
+            } else {
+                this.status = PaymentStatus.REJECTED.getValue();
+            }
+        }
     }
 }
